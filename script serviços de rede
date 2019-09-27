@@ -1,0 +1,20 @@
+enable
+conf t
+hostname RT-01
+interface gigabitEthernet 0/1
+no shutdown 
+interface gigabitEthernet0/1.10
+encapsulation dot1q 10 
+ip address 192.168.0.1 255.255.255.224
+description GATEWAY VLAN 10
+ip helper-address 192.168.0.69
+interface gigabitEthernet 0/1.20
+encapsulation dot1q 20
+ip address 192.168.0.33 255.255.255.224
+description GATEWAY VLAN 20
+ip helper-address 192.168.0.69
+interface gigabitEthernet 0/1.100
+encapsulation dot1q 100
+ip address 192.168.0.65 255.255.255.224
+description GATEWAY VLAN 100 
+do wr
